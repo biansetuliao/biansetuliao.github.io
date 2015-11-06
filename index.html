@@ -61,6 +61,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-django-url" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/06/django-url/" class="article-date">
+  <time datetime="2015-11-06T09:48:55.000Z" itemprop="datePublished">2015-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/06/django-url/">django url</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="django_url中必须加上$这个符号，才能在网站部署到服务器后可以解析">django url中必须加上$这个符号，才能在网站部署到服务器后可以解析</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^test/'</span>, views.IndexViews.as_view(), name=<span class="string">'index'</span>),</span><br><span class="line">	]</span><br></pre></td></tr></table></figure>
+<h6 id="上面是错误的，下面是正确的">上面是错误的，下面是正确的</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^test/$'</span>, views.IndexViews.as_view(), name=<span class="string">'index'</span>),</span><br><span class="line">	]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tnwq.blog.com/2015/11/06/django-url/" data-id="cignhkp8b0003u87nmi2gl11h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-url/">django url</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-django-send-Email" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/11/06/django-send-Email/" class="article-date">
@@ -75,7 +114,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/django-send-Email/">django_send_Email</a>
+      <a class="article-title" href="/2015/11/06/django-send-Email/">django send_email</a>
     </h1>
   
 
@@ -83,13 +122,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>利用django自带的邮件功能<strong>send_email</strong>发送邮件</p>
+<h5 id="修改settings-py，添加邮件配置">修改settings.py，添加邮件配置</h5><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">EMAIL_BACKEND = <span class="value"><span class="string">'django.core.mail.backends.smtp.EmailBackend'</span></span></span></span><br><span class="line"><span class="setting">EMAIL_HOST = <span class="value"><span class="string">'smtp-mail.outlook.com'</span>  #邮件smtp地址</span></span></span><br><span class="line"><span class="setting">EMAIL_PORT = <span class="value"><span class="number">587</span>                      #端口号</span></span></span><br><span class="line"><span class="setting">EMAIL_HOST_USER = <span class="value"><span class="string">'xxxx@outlook.com'</span> #邮箱用户名</span></span></span><br><span class="line"><span class="setting">EMAIL_HOST_PASSWORD = <span class="value"><span class="string">'xxxxxxx'</span>  #邮箱密码</span></span></span><br><span class="line"><span class="setting">EMAIL_USE_TLS = <span class="value"><span class="keyword">True</span></span></span></span><br></pre></td></tr></table></figure>
+<h5 id="在views-py中添加发送邮件的代码">在views.py中添加发送邮件的代码</h5><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mail_list = [<span class="string">"xxx@xx.com"</span>, ]       <span class="comment">#收件人的邮箱地址列表</span></span><br><span class="line">send_mail(</span><br><span class="line">	subject='title',               <span class="comment">#邮件主题</span></span><br><span class="line">	<span class="keyword">message</span>=''test',               <span class="comment">#邮件内容</span></span><br><span class="line">	from_email='yyy@yyy.com',      <span class="comment">#发件人邮箱地址，必须和settings.py中设置的邮箱一致</span></span><br><span class="line">	recipient_list=mail_list,      <span class="comment">#收件人邮箱地址列表</span></span><br><span class="line">	fail_silently=<span class="keyword">True</span>             <span class="comment">#这里必须为True</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h6 id="如果需要在邮件中发送附件或者html页面，需要对此方法进行修改，才能发送">如果需要在邮件中发送附件或者html页面，需要对此方法进行修改，才能发送</h6>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://tnwq.blog.com/2015/11/06/django-send-Email/" data-id="cigneurh50000b07n6ck1on6f" class="article-share-link">Share</a>
+      <a data-url="http://tnwq.blog.com/2015/11/06/django-send-Email/" data-id="cignhkp6s0000u87n3yaztte1" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-send-email/">django send_email</a></li></ul>
+
     </footer>
   </div>
   
@@ -105,14 +149,28 @@
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-send-email/">django send_email</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-url/">django url</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/django-send-email/" style="font-size: 10px;">django send_email</a> <a href="/tags/django-url/" style="font-size: 10px;">django url</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -124,7 +182,11 @@
       <ul>
         
           <li>
-            <a href="/2015/11/06/django-send-Email/">django_send_Email</a>
+            <a href="/2015/11/06/django-url/">django url</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/06/django-send-Email/">django send_email</a>
           </li>
         
       </ul>

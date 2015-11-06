@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | MiuMiu</title>
+  <title>django url | MiuMiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MiuMiu">
-<meta property="og:url" content="http://tnwq.blog.com/archives/2015/index.html">
+  <meta name="description" content="django url中必须加上$这个符号，才能在网站部署到服务器后可以解析123urlpatterns = [    url(r&apos;^test/&apos;, views.IndexViews.as_view(), name=&apos;index&apos;),	]
+上面是错误的，下面是正确的123urlpatterns = [    url(r&apos;^test/$&apos;, views.IndexViews.as_view(), na">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django url">
+<meta property="og:url" content="http://tnwq.blog.com/2015/11/06/django-url/index.html">
 <meta property="og:site_name" content="MiuMiu">
-<meta property="og:description">
+<meta property="og:description" content="django url中必须加上$这个符号，才能在网站部署到服务器后可以解析123urlpatterns = [    url(r&apos;^test/&apos;, views.IndexViews.as_view(), name=&apos;index&apos;),	]
+上面是错误的，下面是正确的123urlpatterns = [    url(r&apos;^test/$&apos;, views.IndexViews.as_view(), na">
+<meta property="og:updated_time" content="2015-11-06T09:56:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MiuMiu">
-<meta name="twitter:description">
+<meta name="twitter:title" content="django url">
+<meta name="twitter:description" content="django url中必须加上$这个符号，才能在网站部署到服务器后可以解析123urlpatterns = [    url(r&apos;^test/&apos;, views.IndexViews.as_view(), name=&apos;index&apos;),	]
+上面是错误的，下面是正确的123urlpatterns = [    url(r&apos;^test/$&apos;, views.IndexViews.as_view(), na">
   
     <link rel="alternative" href="/atom.xml" title="MiuMiu" type="application/atom+xml">
   
@@ -59,58 +63,55 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/11/06/django-url/" class="archive-article-date">
-  <time datetime="2015-11-06T09:48:55.000Z" itemprop="datePublished">11月 6</time>
+        <section id="main"><article id="post-django-url" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/06/django-url/" class="article-date">
+  <time datetime="2015-11-06T09:48:55.000Z" itemprop="datePublished">2015-11-06</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/06/django-url/">django url</a>
+    <h1 class="article-title" itemprop="name">
+      django url
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/11/06/django-send-Email/" class="archive-article-date">
-  <time datetime="2015-11-06T08:32:08.000Z" itemprop="datePublished">11月 6</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/06/django-send-Email/">django send_email</a>
-    </h1>
-  
+        <h5 id="django_url中必须加上$这个符号，才能在网站部署到服务器后可以解析">django url中必须加上$这个符号，才能在网站部署到服务器后可以解析</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^test/'</span>, views.IndexViews.as_view(), name=<span class="string">'index'</span>),</span><br><span class="line">	]</span><br></pre></td></tr></table></figure>
+<h6 id="上面是错误的，下面是正确的">上面是错误的，下面是正确的</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^test/$'</span>, views.IndexViews.as_view(), name=<span class="string">'index'</span>),</span><br><span class="line">	]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tnwq.blog.com/2015/11/06/django-url/" data-id="cignhkp8b0003u87nmi2gl11h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-url/">django url</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/06/django-send-Email/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">django send_email</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
         
           <aside id="sidebar">
